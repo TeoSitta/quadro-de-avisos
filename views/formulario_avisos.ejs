@@ -1,7 +1,71 @@
 <%- include('./partials/head') %> 
   <body>
-    <h1 class="alert alert-primary"> formulario de cadastro de avisos </h1>
+    <div class="container">
 
+      <br>
+      <a href="#"><i class="fas fa-arrow-left"></i> Voltar</a>
+
+    <br>
+
+    <% if (typeof msg !== 'undefined') { %>
+
+      <% if (msg.tipo === 'sucesso') { %>
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong><i class="fas fa-check-circle"></i>Sucesso!</strong> <%= msg.corpo %> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+       
+      <% } %> <!-- Fim do if sucesso -->
+
+      <% if (msg.tipo === 'erro') { %>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong><i class="fas fa-times-circle"></i></i>Erro!</strong> <%= msg.corpo %> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+       
+        <% } %> <!-- Fim do if erro -->
+
+        <% } %> <!-- Fim do if typeof -->
+
+        
+        <br><br>
+
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white pl-5 p-4">
+            <h2 class="card-title"><i class="fas fa-bullhorn"></i> Novo Aviso</h2>
+          </div>
+          <div class="card-body">
+            <form action="/avisos/novo" method="POST">
+
+              <div class="form-group">
+                <label for="titulo">Titulo</label> 
+                <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Digite o título" required>
+              </div>
+      
+              <div class="form-group">
+                <label for="data">Data</label> 
+                <input id="data" name="data" type="date" class="form-control">
+              </div>
+      
+              <div class="form-group">
+                <label for="Mensagem">Mensagem</label> 
+                <textarea id="Mensagem" name="Mensagem" cols="40" rows="5" class="form-control" placeholder="Digite a mensagem" required></textarea>
+              </div> 
+      
+              <div class="form-group text-right">
+                <button name="submit" type="submit" class="btn btn-secondary">Limpar</button>
+                <button name="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+              </div>
+      
+            </form>
+          </div>
+        </div>
+    </div>
+      
     <%- include('./partials/script_i') %> 
   </body>
 </html>
