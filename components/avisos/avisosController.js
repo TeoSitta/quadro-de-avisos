@@ -1,13 +1,14 @@
 const router = require('express').Router()
 
-const Avisos = require('../../views/Avisos')
+const Avisos = require('./avisos')
 
 router.get('/',(req,res)=>{
     res.send("Pagina Inicial")
 })
 
-router.get("/avisos",(req,res)=>{
-    res.send("Pagina de avisos cadastrados")
+router.get("/avisos", async (req,res)=>{
+    const avisor = await Avisos.selecionartudo()
+    res.render('avisos',{avisor})
 })
 
 router.get("/avisos/novo",(req,res)=>{
