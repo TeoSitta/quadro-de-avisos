@@ -35,4 +35,13 @@ function selecionartudo(){
     }) 
 }
 
-module.exports = {salvar,selecionartudo}
+/**
+ * 
+ * @param {int} id
+ */
+
+function excluir(id){
+    return BD.del().from('avisos').where('ID_avisos',id)
+}
+
+module.exports = {salvar,selecionartudo,excluir}
