@@ -37,7 +37,7 @@ function editar(aviso, id){
 * @returns {object} 
 */
 function selecionartudo(){
-    return BD.select('*').from('avisos')
+    return BD.select('*').from('avisos').orderBy('data','ASC')
     .then(avisos => {
 
         return avisos

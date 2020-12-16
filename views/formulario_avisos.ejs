@@ -10,12 +10,6 @@
       <% var titulo = "Novo Aviso" %>
       <% var rota = "/avisos/novo" %>
     <% } %>
-     
-
-    <div class="container">
-
-      <br>
-      <a href="/"><i class="fas fa-arrow-left"></i> Voltar</a>
 
     <br>
 
@@ -46,11 +40,16 @@
         
         <br><br>
 
+    <div class="container">
+
+      <a href="/"><i class="fas fa-arrow-left"></i> Voltar</a>
+      <br><br>
+
         <div class="card shadow">
           <div class="card-header bg-roxo text-white pl-5 p-4">
             <h2 class="card-title"><i class="fas fa-bullhorn"></i> <%= titulo %>  </h2>
           </div>
-          <div class="card-body">
+          <div class="card-body p-5">
             <form action="<%= rota %>" method="POST">
 
               <% if (typeof aviso !== 'undefined' ) { %>
@@ -79,7 +78,7 @@
       
               <div class="form-group text-right">
                 <button name="submit" type="submit" class="btn btn-secondary">Limpar</button>
-                <button name="submit" type="submit" class="btn btn-primary"> <%= typeof aviso != undefined ? "Alterar" : "Cadastrar" %> </button>
+                <button name="submit" type="submit" class="btn btn-primary"> <%= typeof aviso != 'undefined' ? "Alterar" : "Cadastrar" %> </button>
               </div>
       
             </form>

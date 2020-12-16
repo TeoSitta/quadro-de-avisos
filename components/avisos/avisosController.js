@@ -1,9 +1,11 @@
 const router = require('express').Router()
 
+const { as } = require('../../knexfile')
 const Avisos = require('./avisos')
 
-router.get('/',(req,res)=>{
-    res.send("Pagina Inicial")
+router.get('/', async (req,res)=>{
+    const avisor = await Avisos.selecionartudo()
+    res.render("index",{avisor})
 })
 
 router.get("/avisos", async (req,res)=>{
